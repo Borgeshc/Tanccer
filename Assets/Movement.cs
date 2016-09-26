@@ -21,4 +21,32 @@ public class Movement : MonoBehaviour
             transform.Translate(0, vertical2, 0);
         }
 	}
+
+    public void PowerUp()
+    {
+        StartCoroutine(MyPowerUp());
+    }
+
+    public void ApplyNerf()
+    {
+        StartCoroutine(GetNerfed());
+    }
+
+    IEnumerator MyPowerUp()
+    {
+        speed = speed * 3;
+        transform.localScale = transform.localScale * 2;
+        yield return new WaitForSeconds(5);
+        transform.localScale = transform.localScale / 2;
+        speed = speed / 3;
+    }
+
+    IEnumerator GetNerfed()
+    {
+        speed = speed / 3;
+        transform.localScale = transform.localScale / 2;
+        yield return new WaitForSeconds(5);
+        speed = speed * 3;
+        transform.localScale = transform.localScale * 2;
+    }
 }

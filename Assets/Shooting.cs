@@ -20,6 +20,7 @@ public class Shooting : MonoBehaviour
             {
                 lastShot = Time.time;
                 GameObject clone = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+                clone.name = "P1Bullet";
                 clone.transform.SetParent(canvas.transform);
             }
         }
@@ -29,8 +30,21 @@ public class Shooting : MonoBehaviour
             {
                 lastShot = Time.time;
                 GameObject clone = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+                clone.name = "P2Bullet";
                 clone.transform.SetParent(canvas.transform);
             }
         }
 	}
+
+    public void StartPowerUp()
+    {
+        StartCoroutine(PowerOverWhelming());
+    }
+
+    IEnumerator PowerOverWhelming()
+    {
+        shootFreq = shootFreq / 2;
+        yield return new WaitForSeconds(5);
+        shootFreq = shootFreq * 2;
+    }
 }
