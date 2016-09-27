@@ -36,7 +36,7 @@ public class Goal : MonoBehaviour
                 }
             }
         }
-        if (transform.tag == "PlayerTwo")
+        else if (transform.tag == "PlayerTwo")
         {
             if (other.name == "Ball")
             {

@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour
         if (other.name == "P1Bullet")
         {
             playerOne.GetComponent<Movement>().PowerUp();
-            playerOne.GetComponent<Shooting>().StartPowerUp();
+            p1Gun.GetComponent<Shooting>().StartPowerUp();
             playerTwo.GetComponent<Movement>().ApplyNerf();
             Destroy(other.gameObject);
             Destroy(gameObject);
@@ -26,7 +26,7 @@ public class PowerUp : MonoBehaviour
         else if (other.name == "P2Bullet")
         {
             playerTwo.GetComponent<Movement>().PowerUp();
-            playerTwo.GetComponent<Shooting>().StartPowerUp();
+            p2Gun.GetComponent<Shooting>().StartPowerUp();
             playerOne.GetComponent<Movement>().ApplyNerf();
             Destroy(other.gameObject);
             Destroy(gameObject);
