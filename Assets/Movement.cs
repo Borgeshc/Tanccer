@@ -8,17 +8,20 @@ public class Movement : MonoBehaviour
     float vertical2;
 	void Update ()
     {
+
+      //  transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).y, Camera.main.ViewportToWorldPoint(new Vector3(0f, 100f, 0f)).y));
+
         if (transform.tag == "PlayerOne")
         {
             vertical = Input.GetAxis("Vertical") * speed;
             vertical *= Time.deltaTime;
-            transform.Translate(0, vertical, 0);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, vertical);
         }
         else if (transform.tag == "PlayerTwo")
         {
             vertical2 = Input.GetAxis("Vertical2") * speed;
             vertical2 *= Time.deltaTime;
-            transform.Translate(0, vertical2, 0);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, vertical2);
         }
 	}
 
