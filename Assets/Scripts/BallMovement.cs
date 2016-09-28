@@ -19,7 +19,7 @@ public class BallMovement : Photon.MonoBehaviour {
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if(photonView.isMine)
+        if(stream.isWriting)
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);

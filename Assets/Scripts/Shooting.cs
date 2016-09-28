@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shooting : MonoBehaviour
+public class Shooting : Photon.MonoBehaviour
 {
     public GameObject bullet;
     public float shootFreq;
@@ -19,9 +19,9 @@ public class Shooting : MonoBehaviour
             if (Input.GetButtonDown("Fire1") && Time.time > lastShot + shootFreq)
             {
                 lastShot = Time.time;
-                GameObject clone = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+                GameObject clone = PhotonNetwork.Instantiate(bullet.name, transform.position, transform.rotation, 0);
+                clone.GetComponent<PhotonView>().RPC("ChildBullet", PhotonTargets.All);
                 clone.name = "P1Bullet";
-                clone.transform.SetParent(canvas.transform);
             }
         }
         else if (transform.tag == "PlayerTwo" && Time.time > lastShot + shootFreq)
@@ -29,9 +29,9 @@ public class Shooting : MonoBehaviour
             if (Input.GetButtonDown("Fire2"))
             {
                 lastShot = Time.time;
-                GameObject clone = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+                GameObject clone = PhotonNetwork.Instantiate(bullet.name, transform.position, transform.rotation, 0);
+                clone.GetComponent<PhotonView>().RPC("ChildBullet", PhotonTargets.All);
                 clone.name = "P2Bullet";
-                clone.transform.SetParent(canvas.transform);
             }
         }
 	}
