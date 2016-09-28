@@ -6,23 +6,39 @@ public class Movement : MonoBehaviour
     public float speed;
     float vertical;
     float vertical2;
-	void Update ()
+    //AudioSource source;
+    Rigidbody2D rb;
+    bool isPlaying;
+    void Start()
     {
-
-      //  transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).y, Camera.main.ViewportToWorldPoint(new Vector3(0f, 100f, 0f)).y));
-
+        rb = GetComponent<Rigidbody2D>();
+        //source = GetComponent<AudioSource>();
+    }
+	void FixedUpdate ()
+    {
         if (transform.tag == "PlayerOne")
         {
             vertical = Input.GetAxis("Vertical") * speed;
             vertical *= Time.deltaTime;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, vertical);
+            rb.velocity = new Vector2(0, vertical);
         }
         else if (transform.tag == "PlayerTwo")
         {
             vertical2 = Input.GetAxis("Vertical2") * speed;
             vertical2 *= Time.deltaTime;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, vertical2);
+            rb.velocity = new Vector2(0, vertical2);
         }
+
+        //if (rb.velocity.y != 0f && !isPlaying)
+        //{
+        //    isPlaying = true;
+        //    source.Play();
+        //}
+        //else
+        //{
+        //    isPlaying = false;
+        //    source.Stop();
+        //}
 	}
 
     public void PowerUp()
