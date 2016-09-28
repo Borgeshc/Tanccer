@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3923e785eef241e4b9b208859854dcfc
-timeCreated: 1475022966
+guid: 7c706b9d8a9836647a600005402a2fd0
+timeCreated: 1475023450
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -58,10 +58,10 @@ TextureImporter:
       name: bullet-tannceer_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 22
-        width: 16
-        height: 12
+        x: 6
+        y: 21
+        width: 18
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -71,10 +71,10 @@ TextureImporter:
       name: bullet-tannceer_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 6
-        width: 16
-        height: 12
+        x: 6
+        y: 5
+        width: 18
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
