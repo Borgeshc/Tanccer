@@ -6,11 +6,14 @@ public class ResetBall : MonoBehaviour
     public GameObject canvas;
     public GameObject ball;
     public Transform ballSpawnpoint;
+    public Vector3 resetScale;
+
     public void Scored()
     {
         GameObject clone = Instantiate(ball, ballSpawnpoint.position, ballSpawnpoint.rotation) as GameObject;
         clone.name = "Ball";
         clone.transform.SetParent(canvas.transform);
+        clone.transform.localScale = resetScale;
     }
 }
 

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Goal : MonoBehaviour
 {
-
+    public AudioSource source;
     public GameObject winPanel;
     public Text score;
     public Text winText;
@@ -30,6 +30,7 @@ public class Goal : MonoBehaviour
                 resetBall.Scored();
                 if (points >= 10)
                 {
+                    source.Play();
                     winPanel.SetActive(true);
                     winText.text = "Player One Wins!";
                     Time.timeScale = 0;
@@ -46,6 +47,7 @@ public class Goal : MonoBehaviour
                 resetBall.Scored();
                 if (points >= 10)
                 {
+                    source.Play();
                     winPanel.SetActive(true);
                     winText.text = "Player Two Wins!";
                     Time.timeScale = 0;
