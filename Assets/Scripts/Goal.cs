@@ -32,7 +32,7 @@ public class Goal : MonoBehaviour
                 {
                     source.Play();
                     winPanel.SetActive(true);
-                    winText.text = "Player One Wins!";
+                    winText.text = "Player Two Wins!";
                     Time.timeScale = 0;
                 }
             }
@@ -49,7 +49,7 @@ public class Goal : MonoBehaviour
                 {
                     source.Play();
                     winPanel.SetActive(true);
-                    winText.text = "Player Two Wins!";
+                    winText.text = "Player One Wins!";
                     Time.timeScale = 0;
                 }
             }
