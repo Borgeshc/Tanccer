@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Vector2 forceVec = gameObject.GetComponent<Rigidbody2D>().velocity * .25f;
+        Vector2 forceVec = gameObject.GetComponent<Rigidbody2D>().velocity * .015f;
         col.gameObject.GetComponent<Rigidbody2D>().AddForce(forceVec);
         Destroy(gameObject);
     }
