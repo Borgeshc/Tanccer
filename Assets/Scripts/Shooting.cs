@@ -12,7 +12,31 @@ public class Shooting : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas"); 
     }
-	public void Shoot ()
+
+    void Update()
+    {
+        if (transform.tag == "PlayerOne" && Time.time > lastShot + shootFreq)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                lastShot = Time.time;
+                GameObject clone = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+                clone.name = "P1Bullet";
+                clone.transform.SetParent(canvas.transform);
+            }
+        }
+        else if (transform.tag == "PlayerTwo" && Time.time > lastShot + shootFreq)
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                lastShot = Time.time;
+                GameObject clone = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+                clone.name = "P2Bullet";
+                clone.transform.SetParent(canvas.transform);
+            }
+        }
+    }
+    public void Shoot ()
     {
         //if (transform.tag == "PlayerOne")
         //{
