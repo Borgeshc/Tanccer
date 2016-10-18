@@ -11,18 +11,6 @@ public class MenuButton : MonoBehaviour
         baseScale = transform.localScale;
     }
 
-    public void MouseOver()
-    {
-        print("Over");
-        transform.localScale = (transform.localScale * 2) * .5f;
-    }
-
-    public void MouseExit()
-    {
-        print("Exit");
-        transform.localScale = baseScale;
-    }
-
 	// Use this for initialization
 	public void Play () {
         SceneManager.LoadScene("Game");
